@@ -77,17 +77,34 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Learning_App',
-        'USER': 'postgres',
-        'PASSWORD':'aromal@802003',
-        'HOST': 'localhost',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',  # As shown in Supabase
+#         'USER': 'postgres',  # Supabase default
+#         'PASSWORD': 'Aromal@802003',  # Replace with your Supabase password
+#         'HOST': 'db.xefdfjqyfgvjmudjlshk.supabase.co',
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'sslmode': 'require',  # Supabase requires SSL
+#         },
+#     }
+# }
+
+
+
+
+
+
+
+
 
 
 # Password validation
@@ -124,11 +141,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
+   
 ]
 
 
