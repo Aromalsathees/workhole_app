@@ -17,8 +17,9 @@ urlpatterns = [
     path('get-top-pop-search/',GetPopTopsearch.as_view()),
     # subjects urls Ends here
 
-    # Exams urls starts from here
 
+
+    # Exams urls starts from here
     path('createlistExams',createlistExams.as_view(),name='createlistExams'),
     path('createDifferentExams',createDifferentExams.as_view(),name='createDifferentExams'),
     path('createPopularExams',createPopularExams.as_view(),name='createPopularExams'),
@@ -26,11 +27,11 @@ urlpatterns = [
     path('GetSubExams/<int:id>/',GetSubExams.as_view()),
     path('GetPopularRelatedExams/<int:id>/',GetPopularRelatedExams.as_view()),
     path('get-material-exams/<id>/',GetPopularTopRelatedExams.as_view()),
-
     # Exams urls ends from here
 
+
+
     # Courses urls starts from here
-    
     path('createlistCourses',createlistCourses.as_view(),name='createlistCourses'),
     path('createDifferentCourses',createDifferentCourses.as_view(),name='createDifferentCourses'),
     path('createPopularCourses',createPopularCourses.as_view(),name='createPopularCourses'),
@@ -38,6 +39,7 @@ urlpatterns = [
     path('GetSubCourses/<int:id>/',GetSubCourses.as_view()),
     path('GetPopularRelatedCourses/<int:id>/',GetPopularRelatedCourses.as_view()),
     path('get-material-courses/<id>/',GetPopularTopRelatedCourses.as_view()),
+    # Courses urls ends from here
 
     
 ]

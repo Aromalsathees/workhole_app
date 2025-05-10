@@ -26,12 +26,12 @@ class ToprelatedSubjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToprelatedSubjects
         fields = '__all__'   
-
 # subjects serilizers ends here   
 
 
-# Exams serilizers starts from here   
 
+
+# Exams serilizers starts from here   
 class ExamsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exams
@@ -51,12 +51,13 @@ class ToprelatedExamsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToprelatedExams
         fields = '__all__'   
-
 # Exams serilizers Ends here   
 
 
-# courses serilizers starts from here   
 
+
+
+# courses serilizers starts from here   
 class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exams
@@ -76,9 +77,8 @@ class ToprelatedCoursesSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToprelatedCourses
         fields = '__all__'   
-  
 
-# Exams serilizers Ends here   
+# courses serilizers Ends here   
 
 
     

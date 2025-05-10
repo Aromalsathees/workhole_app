@@ -5,7 +5,7 @@ from .models import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .tasks import send_registration_email
+
 
 # Create your views here.
 from django.http import HttpResponse
@@ -13,27 +13,17 @@ from django.http import HttpResponse
 def home(request):
     return HttpResponse("Hello, this is the home page.")
 
-# class GetuserContact(APIView):
-#     def post(self, request, *args, **kwargs):
-#         serializer = ContactSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save() 
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 class GetuserContact(APIView):
     def post(self, request, *args, **kwargs):
         serializer = ContactSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            email = serializer.validated_data['email']
-            send_registration_email.delay(email)  # Calling the task asynchronously
+            serializer.save() 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# subjects views starts from here
 
+# subjects views starts from here
 class createlistSubjects(ListCreateAPIView):
     queryset = Subjects.objects.all()
     serializer_class = SubjectsSerializer
@@ -91,14 +81,13 @@ class GetPopTopsearch(APIView):
         pop_serializer = PopularSubjectsSerializer(pop_search,many=True)
         top_serializer = ToprelatedSubjectsSerializer(top_search,many=True)
 
-        return Response({'pop_subjects': pop_serializer.data,'top_subjects':top_serializer.data})
-    
+        return Response({'pop_subjects': pop_serializer.data,'top_subjects':top_serializer.data})  
 # subjects views ends here 
 
 
 
-# Exams views starts From Here   
 
+# Exams views starts From Here   
 class createlistExams(ListCreateAPIView):
     queryset = Exams.objects.all()
     serializer_class = ExamsSerializer
@@ -145,14 +134,11 @@ class GetPopularTopRelatedExams(APIView):
             queryset = ToprelatedExams.objects.get(id=id)
             serializer = ToprelatedExamsSerializer(queryset , context={'request' : request})
             return Response(serializer.data, status=200)
-
 # Exams views ends here 
 
-# Couses views starts from here
 
 
-# Exams views starts From Here   
-
+# Couses views starts from here  
 class createlistCourses(ListCreateAPIView):
     queryset = Courses.objects.all()
     serializer_class = CoursesSerializer
@@ -200,4 +186,4 @@ class GetPopularTopRelatedCourses(APIView):
             serializer = ToprelatedCoursesSerializer(queryset , context={'request' : request})
             return Response(serializer.data, status=200)
 
-        
+# Courses Views ends here   

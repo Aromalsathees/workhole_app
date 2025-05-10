@@ -17,9 +17,9 @@ class UserContact(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 # subjetcs models starts from here 
-
 class Subjects(models.Model):
     name =  models.CharField(max_length=50,default="")
 
@@ -79,9 +79,9 @@ class Downloadmaterials(models.Model):
     top_subject = models.ForeignKey(ToprelatedSubjects,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/',null=True, blank=True)    
 
-
-
 # subjetcs models Ends here
+
+
 
 # Exams models starts from here 
 class Exams(models.Model):
@@ -140,6 +140,9 @@ class ToprelatedExams(models.Model):
 
 # Exams models ends here
 
+
+
+
 # Courses models starts from here
 
 class Courses(models.Model):
@@ -196,6 +199,6 @@ class ToprelatedCourses(models.Model):
     def __str__(self):
         return self.name
 
-    
+#  courses models ends here   
 
 
